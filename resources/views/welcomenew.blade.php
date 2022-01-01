@@ -32,7 +32,7 @@
                     @endif
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        {{-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> --}}
                     </ul>
                 </div>
             </div>
@@ -76,7 +76,7 @@
             </div>
         </section>
         <!-- Contact section-->
-        <section id="contact">
+        {{-- <section id="contact">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; 2021</p></div>
