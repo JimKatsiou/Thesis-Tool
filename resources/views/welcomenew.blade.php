@@ -41,7 +41,7 @@
         <header class="bg-primary bg-gradient text-white">
             {{-- <div style="background-image: url('img/home.png');"> --}}
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to IoT Tool</h1>
+                <h1 class="fw-bolder">Welcome to Tool</h1>
 
                 {{-- <img src="img/home.png" class=".img-fluid" max-width="100%" alt="..." height="auto"> --}}
                 <p class="lead"></p>
