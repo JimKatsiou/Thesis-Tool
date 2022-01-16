@@ -19,6 +19,7 @@
 						<img src="img/logo.jpg" alt="logo">
 					</div>
 					<div class="card fat">
+                        <a type="button" href="/" type="button" class="btn btn-primary">Back to Home</a>
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
 							<form method="POST" class="my-login-validation" novalidate="" action="{{ route('login') }}">
@@ -54,13 +55,13 @@
 									</button>
 								</div>
 								<div class="mt-4 text-center">
-									Don't have an account? <a href="{{ route('register') }}">Create One</a>
+									Don't have an account? <a href="{{ route('register') }}">Create One here</a>
 								</div>
 							</form>
 						</div>
 					</div>
 					<div class="footer">
-						Copyright &copy; 2017 &mdash; Your Company
+						Copyright &copy; 2022 &mdash;
 					</div>
 				</div>
 			</div>

@@ -38,27 +38,32 @@
             </div>
         </nav>
         <!-- Header-->
-        <header class="bg-primary bg-gradient text-white">
+        <header style="background-image: url('img/Internet-of-Things.jpg');">
+        {{-- <header class="bg-primary bg-gradient text-white"> --}}
             {{-- <div style="background-image: url('img/home.png');"> --}}
             <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to Tool</h1>
+                {{-- <h1 class="fw-bolder">Welcome to Tool</h1> --}}
 
                 {{-- <img src="img/home.png" class=".img-fluid" max-width="100%" alt="..." height="auto"> --}}
                 <p class="lead"></p>
-                <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a>
+                {{-- <a class="btn btn-lg btn-light" href="#about">Start scrolling!</a> --}}
+            </div>
             </div>
         </header>
         <!-- About section-->
+
         <section id="about">
+            <hr>
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
                         <h2>About this tool</h2>
-                        <p class="lead">This app is a GUI -Dashboard to ....</p>
+                        <p class="lead"> The ???, was developed to support and contextualise a thesis based on the design and management of IoT systems. </p>
+                        <p class="lead"> The ???, has several features and options.</p>
                         <ul>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li class="lead"> User Authentication system </li>
+                            <li class="lead"> GUI Dashboard </li>
+                            <li class="lead">  </li>
                         </ul>
                     </div>
                 </div>
@@ -66,6 +71,7 @@
         </section>
         <!-- Services section-->
         <section class="bg-light" id="services">
+            <hr>
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
                     <div class="col-lg-8">
@@ -88,7 +94,7 @@
         </section> --}}
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; 2021</p></div>
+            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; 2022</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

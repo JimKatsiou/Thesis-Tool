@@ -18,6 +18,7 @@
 						<img src="img/logo.jpg" alt="bootstrap 4 login page">
 					</div>
 					<div class="card fat">
+                        <a type="button" href="/" type="button" class="btn btn-primary">Back to Home</a>
 						<div class="card-body">
 							<h4 class="card-title">Register</h4>
 							<form method="POST" class="my-login-validation" novalidate="" action="{{ route('register') }}">
@@ -87,7 +88,7 @@
 						</div>
 					</div>
 					<div class="footer">
-						Copyright &copy; 2021 &mdash; ??
+						Copyright &copy; 2022 &mdash;
 					</div>
 				</div>
 			</div>
