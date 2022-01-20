@@ -15,10 +15,10 @@
 			<div class="row justify-content-md-center h-100">
 				<div class="card-wrapper">
 					<div class="brand">
-						<img src="img/logo.jpg" alt="bootstrap 4 login page">
+						<img src="img/logo2.jpg" alt="bootstrap 4 login page">
 					</div>
+                    <a type="button" href="/" type="button" class="btn btn-primary">Back to Home</a>
 					<div class="card fat">
-                        <a type="button" href="/" type="button" class="btn btn-primary">Back to Home</a>
 						<div class="card-body">
 							<h4 class="card-title">Register</h4>
 							<form method="POST" class="my-login-validation" novalidate="" action="{{ route('register') }}">
@@ -40,12 +40,12 @@
                                     <span class="text-danger">@error('name'){{ $message }}@enderror</span>
 								</div>
 
-                                <div class="form-group">
+                                {{-- <div class="form-group">
 									<label for="address">Address</label>
 									<input id="address" type="address" class="form-control" name="address" required placeholder="Enter address"
                                     value="{{ old('address') }}">
                                     <span class="text-danger">@error('address'){{ $message }}@enderror</span>
-								</div>
+								</div> --}}
 
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>

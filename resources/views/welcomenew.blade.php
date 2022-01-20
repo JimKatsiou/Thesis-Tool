@@ -2,6 +2,16 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+        #header {
+        border: 2px solid black;
+        background-image: url('img/Internet-of-Things.jpg');
+        /* background-image: url('F:/Development/Laravel/Thesis_Tool/public/img/Internet-of-Things.jpg'); */
+        background-repeat: no-repeat;
+        background-size: 100%
+        /* background-size: auto; */
+        }
+        </style>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
@@ -38,7 +48,7 @@
             </div>
         </nav>
         <!-- Header-->
-        <header style="background-image: url('img/Internet-of-Things.jpg');">
+        <header id="header">
         {{-- <header class="bg-primary bg-gradient text-white"> --}}
             {{-- <div style="background-image: url('img/home.png');"> --}}
             <div class="container px-4 text-center">

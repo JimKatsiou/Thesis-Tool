@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Chartjs</title>
+    <title>Bar Charts</title>
     <style>
         * {
             margin: 0;
@@ -45,6 +45,22 @@
 </head>
 
 <body>
+<div class="topnav">
+            <a href="{{ route('admin.index') }}" class="btn btn-primary">Back to Dashboard</a>
+            {{-- <a href="#">Link</a> --}}
+</div>
+<hr>
+<div class="row">
+  <div class="column">
+    <h2>Bar Chart - ENERGY CONSUMPTION (5G VS LoRa VS NB-IoT)</h2>
+    <div class="chartCard">
+        <div class="chartBox">
+            <canvas id="sales-chart"></canvas>
+            <button onclick="updateChart_2()">Update</button>
+        </div>
+    </div>
+  </div>
+</div>
 <hr>
 <div class="row">
   <div class="column">
@@ -53,24 +69,44 @@
     <div class="chartCard">
         <div class="chartBox">
             <canvas id="myChart"></canvas>
-            <button onclick="updateChart()">Update</button>
+            <button onclick="updateChart()">View</button>
         </div>
     </div>
   </div>
 </div>
 <hr>
+<hr>
 <div class="row">
-  <div class="column">
-    <h2>Column 2</h2>
-    <div class="chartCard">
-        <div class="chartBox">
-            <canvas id="Pie_Charts" height="100"></canvas>
-            <button onclick="updateChart_2()">Update</button>
-        </div>
+    <div class="column">
+        <h2>Bar Chart - Total Score <h2>
+        <button type="button" class="btn btn-primary btn-lg">Open</button>
     </div>
-  </div>
 </div>
-
+<hr>
+<hr>
+<div class="row">
+    <div class="column">
+        <h2>Bar Chart - ?????</h2>
+        <button type="button" class="btn btn-primary btn-lg">Open</button>
+    </div>
+</div>
+<hr>
+<hr>
+<div class="row">
+    <div class="column">
+        <h2>Bar Chart - ?????</h2>
+        <button type="button" class="btn btn-primary btn-lg">Open</button>
+    </div>
+</div>
+<hr>
+<hr>
+<div class="row">
+    <div class="column">
+        <h2>Bar Chart - ?????</h2>
+        <button type="button" class="btn btn-primary btn-lg">Open</button>
+    </div>
+</div>
+<hr>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -105,10 +141,10 @@
     };
         // setup
         const data = {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            labels: [],
             datasets: [{
-                label: 'Final Cost',
-                data: [18, 12, 6, 9, 12, 3, 9],
+                label: '',
+                data: [],
                 backgroundColor: [
                     'rgba(255, 26, 104, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -200,5 +236,7 @@
 <script src="dist/js/pages/dashboard3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-
+<a id="back-to-top" href="{{ route('chartView') }}#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+    </a>
 @endsection

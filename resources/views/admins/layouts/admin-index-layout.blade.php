@@ -47,7 +47,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{\URL::to('/')}}" class="brand-link">
+    <a class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">My site</span>
     </a>
@@ -102,33 +102,33 @@
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
-              <p>Charts <i class="right fas fa-angle-left"></i></p>
+              <p>Charts<i class="right fas fa-angle-left"></i></p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href={{ route("chartView") }} class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
+                  <p>Bar Charts</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href={{ route("chartViewPie") }} class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Pie Chart</p>
+                  <p>Pie Charts</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href={{ route("chartViewLine")}} class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Bar Chart</p>
+                  <p>Line Charts</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+              {{-- <li class="nav-item">
+                <a href={{ route("")}} class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>uPlot</p>
                 </a>
-              </li>
+              </li> --}}
             </ul>
           </li>
         <li class="nav-item">
@@ -164,12 +164,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
+            <h1 class="m-0">Dashboard Page</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
+            {{-- <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
+            </ol> --}}
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -188,7 +188,7 @@
                             <h3 class="card-title"><b>Chart Graph</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('chartViewLine') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>
@@ -256,10 +256,10 @@
                 <div class="card card-success">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title"><b>Other Chart</b></h3>
+                            <h3 class="card-title"><b>Scatter Plots</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('chartViewLine') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>
@@ -270,14 +270,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.card (Other Chart) -->
+                <!-- /.card (Scatter_Plots) -->
                 <div class="card card-success">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title"><b>Other Chart</b></h3>
+                            <h3 class="card-title"><b>Pie Charts</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('chartViewPie') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>
@@ -295,10 +295,10 @@
                 <div class="card card-success">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title"><b>Graph with Bars</b></h3>
+                            <h3 class="card-title"><b>Bar Chart</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('chartView') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>
@@ -309,14 +309,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.card (Graph with Bars) -->
+                <!-- /.card (Bar Chart) -->
                 <div class="card card-success">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title"><b>Other Chart</b></h3>
+                            <h3 class="card-title"><b>Line Graphs</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('chartViewLine') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>
@@ -327,14 +327,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.card (Other Chart) -->
+                <!-- /.card (Line Graphs) -->
                 <div class="card card-success">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title"><b>Other Chart</b></h3>
+                            <h3 class="card-title"><b>Multiple Lines</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('chartViewLine') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>
@@ -345,14 +345,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.card (Other Chart) -->
+                <!-- /.card (Multiple_Lines) -->
                 <div class="card card-success">
                     <div class="card-header border-0">
                         <div class="d-flex justify-content-between">
-                            <h3 class="card-title"><b>Other Chart</b></h3>
+                            <h3 class="card-title"><b>Doughnut Charts</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('chartViewPie') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>
@@ -363,7 +363,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.card (Other Chart) -->
+                <!-- /.card (Doughnut Charts) -->
             </div>
         </div>
         <!-- /.row -->
@@ -390,7 +390,7 @@
 
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021</strong>
+    <strong>Copyright &copy; 2022</strong>
   </footer>
 
   <a id="back-to-top" href="{{ route('admin.index') }}#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">

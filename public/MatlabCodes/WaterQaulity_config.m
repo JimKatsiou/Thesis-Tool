@@ -14,6 +14,8 @@ num_sensorsnb = 2; % *
 CostOfSensorsnb = 100;
 CostOfInsstalationnb = 100;
 
+numOfPipes = 50;
+
 %% Different Technology Parmeters (5G)
 
 num_sensors5g = 2; % *

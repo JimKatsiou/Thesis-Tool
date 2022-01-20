@@ -31,14 +31,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="index3.html" class="nav-link">Home</a>
+          <a type="button" href="/" type="button" class="btn btn-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a class="dropdown-item" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-          </a>
+        <button type="button" class="btn btn-link" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+          {{ __('Logout') }}
+        </button>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form>
@@ -79,17 +79,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
+       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column nav-legacy nav-compact nav-child-indent nav-collapse-hide-child nav-flat" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-               <li class="nav-item">
+          <li class="nav-item">
             <a href={{ route('admin.index') }} class="nav-link">
               <i class="nav-icon fas fa-home"></i>
-              <p>
-                Dashboard
-              </p>
+              <p>Dashboard</p>
             </a>
           </li>
         <li class="nav-item">
@@ -105,21 +103,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
         </li>
         <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>Charts <i class="right fas fa-angle-left"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href={{ route("chartView") }} class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bar Chart</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href={{ route("chartViewPie") }} class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pie Chart</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/inline.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bar Chart</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/uplot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>uPlot</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        <li class="nav-item">
+            <a href={{ route('tableView_2') }} class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>Tables</p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href={{ route('admin.settings') }} class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>Settings</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href={{ route('admin.settings') }} class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>Charts</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href={{ route('admin.settings') }} class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>Tables</p>
             </a>
         </li>
         <li class="nav-item">
@@ -158,7 +182,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021</strong>
+    <strong>Copyright &copy; 2022</strong>
   </footer>
 </div>
 <!-- ./wrapper -->

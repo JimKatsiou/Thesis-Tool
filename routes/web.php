@@ -39,12 +39,19 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth', 'PreventBackHi
     Route::post('change-password', [AdminController::class, 'changePassword'])->name('adminChangePassword');
 });
 
+// ~~~ Graps Pages ~~~
+
 Route::get('table-view', [DashboardContoller::class, 'tableView'])->name('tableView');
 Route::get('table-view_2', [DashboardContoller::class, 'tableView_2'])->name('tableView_2');
+Route::get('insidetableView_1', [DashboardContoller::class, 'insidetableView_1'])->name('insidetableView_1');
+
 Route::get('chart-view', [DashboardContoller::class, 'chartView'])->name('chartView');
+
 Route::get('chart-viewPie', [DashboardContoller::class, 'chartViewPie'])->name('chartViewPie');
 
+Route::get('chart-viewLine', [DashboardContoller::class, 'chartViewLine'])->name('chartViewLine');
 
+// ~~~ /Graps Pages ~~~
 
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth', 'PreventBackHistory']], function(){
     Route::get('index',[UserController::class,'index'])->name('user.index');

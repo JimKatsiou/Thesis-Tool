@@ -16,7 +16,7 @@ $(function () {
   var salesChart = new Chart($salesChart, {
     type: 'bar',
     data: {
-        labels: ['5G-LoRa', '5G-NB-IoT', '5G-LoRa'],
+        labels: ['5G-LoRa', '5G-NB-IoT', 'NB-IoT-LoRa'],
       datasets: [
         {
           backgroundColor: '#007bff',
@@ -81,7 +81,7 @@ $(function () {
   // eslint-disable-next-line no-unused-vars
   var visitorsChart = new Chart($visitorsChart, {
     data: {
-      labels: ['18th', '20th', '22nd', '24th', '26th', '28th', '30th'],
+      labels: ['1', '2', '5', '10', '15', '20', '30'],
       datasets: [{
         type: 'line',
         data: [100, 120, 170, 167, 180, 177, 160],
@@ -223,14 +223,12 @@ new Chart("Scatter_Plots", {
     }
 });
 
-var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-var yValues = [55, 49, 44, 24, 15];
+var xValues = ["LoRa", "NB-IoT", "5G"];
+var yValues = [55, 49, 24];
 var barColors = [
     "#b91d47",
     "#00aba9",
-    "#2b5797",
-    "#e8c3b9",
-    "#1e7145"
+    "#2b5797"
 ];
 
 new Chart("Pie_Charts", {

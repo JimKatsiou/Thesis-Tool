@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +17,8 @@
 					<div class="brand">
 						<img src="img/logo.jpg" alt="logo">
 					</div>
+                    <a type="button" href="/" type="button" class="btn btn-primary">Back to Home</a>
 					<div class="card fat">
-                        <a type="button" href="/" type="button" class="btn btn-primary">Back to Home</a>
 						<div class="card-body">
 							<h4 class="card-title">Login</h4>
 							<form method="POST" class="my-login-validation" novalidate="" action="{{ route('login') }}">
@@ -41,7 +40,6 @@
                                     placeholder="Enter password">
                                     <span class="text-danger">@error('password'){{ $message }}@enderror </span>
 								</div>
-
 								<div class="form-group">
 									<div class="custom-checkbox custom-control">
 										<input type="checkbox" name="remember" id="remember" class="custom-control-input">
@@ -51,7 +49,7 @@
 
 								<div class="form-group m-0">
 									<button type="submit" class="btn btn-primary btn-block">
-										Login
+										{{ __('Login') }}
 									</button>
 								</div>
 								<div class="mt-4 text-center">

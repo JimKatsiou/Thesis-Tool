@@ -3,13 +3,30 @@
 
 <body>
 @section('content')
+ <div class="topnav">
+            <a href="{{ route('admin.index') }}" class="btn btn-primary">Back to Dashboard</a>
+            {{-- <a href="#">Link</a> --}}
+ </div>
 
 <div class="row">
   <div class="column">
-    <h2>Column</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget elementum magna tristique. Quisque vehicula, risus eget aliquam placerat, purus leo tincidunt eros, eget luctus quam orci in velit. Praesent scelerisque tortor sed accumsan convallis.</p>
+    <h2>Pie Chart - ???</h2>
+    <p>Some text.</p>
+    <button type="button" class="btn btn-primary btn-lg">Open</button>
   </div>
 </div>
+<hr>
+<div class="row">
+  <div class="column">
+    <h2>Pie Chart - ???</h2>
+    <p>Some text.</p>
+    <button type="button" class="btn btn-primary btn-lg">Open</button>
+  </div>
+</div>
+<hr>
 
 
 @endsection
+<a id="back-to-top" href="{{ route('chartViewPie') }}#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+      <i class="fas fa-chevron-up"></i>
+</a>
