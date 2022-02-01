@@ -94,9 +94,15 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href={{ route('scnario.index') }} class="nav-link">
+              <i class="nav-icon fa fa-bookmark"></i>
+              <p>Scenarios</p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href={{ route('admin.matlab') }} class="nav-link">
               <i class="nav-icon fa fa-laptop"></i>
-              <p>Matlab</p>
+              <p>??</p>
             </a>
         </li>
         <li class="nav-item">
@@ -141,12 +147,6 @@
             <a href={{ route('admin.settings') }} class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>Settings</p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href={{ route('admin.settings') }} class="nav-link">
-              <i class="nav-icon fa fa-bookmark"></i>
-              <p>Somethink else</p>
             </a>
         </li>
         </ul>
