@@ -1,0 +1,32 @@
+{
+    "results": [
+        {
+            "Id": 1,
+            "Technology": "5G",
+            "NumberOfSensors": 5,
+            "CostOfSensors": 100,
+            "CostOfInsstalation": 300,
+            "FinalCost": 800,
+            "Energy": 40
+        },
+            {
+                "Id": 2,
+                "Technology": "LoRa",
+                "NumberOfSensors": 5,
+                "CostOfSensors": 100,
+                "CostOfInsstalation": 1000,
+                "FinalCost": 1500,
+                "Energy": 4
+            },
+            {
+                "Id": 3,
+                "Technology": "NB-IoT",
+                "NumberOfSensors": 5,
+                "CostOfSensors": 100,
+                "CostOfInsstalation": 100,
+                "FinalCost": 600,
+                "Energy": 4
+            }
+        ]
+}
+

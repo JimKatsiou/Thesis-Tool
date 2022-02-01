@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DashboardContoller;
+use App\Http\Controllers\ScenarioController;
 use App\Http\Controllers\UserController;
+use App\Models\Scenario;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +60,13 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth', 'PreventBackHist
     Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
     Route::get('settings', [UserController::class, 'settings'])->name('user.settings');
 });
+
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ScenarioController ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Route::get('scenarios/index', [ScenarioController::class, 'index'])->name('scnario.index');
+// Scenario Creation
+Route::get('scenarios/create', [ScenarioController::class, 'create'])->name('scnario.create');
+// Add Scenario (μετά την Ολοκλήρωση)
+Route::post('add_scenario', [ScenarioController::class, 'add_scenario'])->name('add_scenario');
+// Lesson Status (Enable/Disable)
+Route::get('/scenarios/scenario_display/{id}/{display}', [ScenarioController::class, 'lesson_display'])->name('scenario_display');

@@ -4,7 +4,7 @@ disp('Start')
 % Acceptable values 1: Water Quality, 2:Water leakage, 3: Soil moisture, (??):Water Temperature
 type_of_system = 1;
 if (type_of_system == 1)
-    run ('WaterQuality_config.m')
+    run ('WaterQaulity_config.m')
     disp('Water quality scenario')
 elseif (type_of_system == 2)
     run ('Leakeage_config.m')
@@ -166,7 +166,7 @@ fid = fopen('file.json', 'w'); % Write to a json file
 fprintf(fid, '%s', jsonText);
 fclose(fid);
 
-movefile('file.json','D:\xampp\htdocs\Thises-Files')
+movefile('file.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')
 
     %save('response.mat','current_response');
 
