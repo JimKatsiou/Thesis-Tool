@@ -1,32 +1,79 @@
-@extends('pages.charts.layouts.chart-layout')
-@section('title','Profile')
+@extends('layouts.app')
+@section('title','??')
+
+@section('content')
 
 <body>
-@section('content')
- <div class="topnav">
-            <a href="{{ route('admin.index') }}" class="btn btn-primary">Back to Dashboard</a>
-            {{-- <a href="#">Link</a> --}}
- </div>
-
-<div class="row">
-  <div class="column">
-    <h2>Pie Chart - ???</h2>
-    <p>Some text.</p>
-    <button type="button" class="btn btn-primary btn-lg">Open</button>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="column">
-    <h2>Pie Chart - ???</h2>
-    <p>Some text.</p>
-    <button type="button" class="btn btn-primary btn-lg">Open</button>
-  </div>
-</div>
-<hr>
-
-
-@endsection
-<a id="back-to-top" href="{{ route('chartViewPie') }}#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
-      <i class="fas fa-chevron-up"></i>
-</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+            <a href={{ route('admin.index') }} type="button" class="btn btn-danger">Back to Dashboard</a>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h4>Pie Chart - ENERGY CONSUMPTION (5G VS LoRa VS NB-IoT)</h4>
+            </div>
+            <div class="card-body">
+                {{-- <canvas id="sales-chart"></canvas> --}}
+                <button onclick="updateChart_2()">Update</button>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h4>Pie Chart - Chipest Scenarios</h4>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary btn-lg">Open</button>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h4>Pie Chart - Total Score </h4>
+            </div>
+            <div class="card-body">
+                <canvas id="myChart"></canvas>
+                <button onclick="updateChart()">View</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h4>Pie Chart - Total Score </h4>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary btn-lg">Open</button>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h4>Pie Chart - Total Score </h4>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary btn-lg">Open</button>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h4>Pie Chart - Total Score </h4>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary btn-lg">Open</button>
+            </div>
+        </div>
+        <hr>
+        <div class="card">
+            <div class="card-header">
+                <h4>Pie Chart - Total Score </h4>
+            </div>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary btn-lg">Open</button>
+            </div>
+        </div>
+        <hr>
+    </div>
+    @endsection

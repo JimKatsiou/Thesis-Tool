@@ -79,75 +79,32 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href={{ route('admin.index') }} class="nav-link">
-              <i class="nav-icon fas fa-home"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
         <li class="nav-item">
-            <a href={{ route('admin.profile') }} class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Profile</p>
-            </a>
+            <a href={{ route('admin.index') }} class="nav-link"><i class="nav-icon fas fa-home"></i><p>Dashboard</p></a>
         </li>
         <li class="nav-item">
-            <a href={{ route('scnario.index') }} class="nav-link">
-              <i class="nav-icon fa fa-bookmark"></i>
-              <p>Scenarios</p>
-            </a>
+            <a href={{ route('admin.profile') }} class="nav-link"><i class="nav-icon fas fa-user"></i><p>Profile</p></a>
         </li>
         <li class="nav-item">
-            <a href={{ route('admin.matlab') }} class="nav-link">
-              <i class="nav-icon fa fa-laptop"></i>
-              <p>??</p>
-            </a>
+            <a href={{ route('scnario.index') }} class="nav-link"><i class="nav-icon fa fa-bookmark"></i><p>Scenarios</p></a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>Charts<i class="right fas fa-angle-left"></i></p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href={{ route("chartView") }} class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Bar Charts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href={{ route("chartViewPie") }} class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Pie Charts</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href={{ route("chartViewLine")}} class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Line Charts</p>
-                </a>
-              </li>
-              {{-- <li class="nav-item">
-                <a href={{ route("")}} class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>uPlot</p>
-                </a>
-              </li> --}}
-            </ul>
-          </li>
-        <li class="nav-item">
-            <a href={{ route('tableView_2') }} class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>Tables</p>
-            </a>
+            <a href={{ route('admin.matlab') }} class="nav-link"><i class="nav-icon fa fa-laptop"></i><p>??</p></a>
         </li>
         <li class="nav-item">
-            <a href={{ route('admin.settings') }} class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>Settings</p>
-            </a>
+            <a href={{ route("chartView") }} class="nav-link"><i class="nav-icon far fa-chart-bar"></i><p>Bar Charts</p></a>
+        </li>
+        <li class="nav-item">
+            <a href={{ route("chartViewPie") }} class="nav-link"><i class="nav-icon fas fa-chart-pie"></i><p>Pie Charts</p></a>
+        </li>
+        <li class="nav-item">
+            <a href={{ route("chartViewLine")}} class="nav-link"><i class="nav-icon fas fa-chart-line"></i><p>Line Charts</p></a>
+        </li>
+        <li class="nav-item">
+            <a href={{ route('tableView_2') }} class="nav-link"><i class="nav-icon fas fa-table"></i><p>Tables</p></a>
+        </li>
+        <li class="nav-item">
+            <a href={{ route('admin.settings') }} class="nav-link"><i class="nav-icon fas fa-cog"></i><p>Settings</p></a>
         </li>
         </ul>
       </nav>
@@ -206,7 +163,7 @@
                             <h3 class="card-title"><b>Table Format</b></h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-                                <a href="{{ route('tableView') }}" type="button" class="btn btn-primary">Join</a>
+                                <a href="{{ route('insidetableView_1') }}" type="button" class="btn btn-primary">Join</a>
                             </div>
                                 <!-- /.card-tools -->
                         </div>

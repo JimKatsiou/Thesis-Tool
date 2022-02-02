@@ -1,5 +1,5 @@
-@extends('pages.charts.layouts.chart-layout')
-@section('title','Charts')
+@extends('layouts.app')
+@section('title','??')
 
 @section('content')
 <head>
@@ -43,70 +43,79 @@
         }
     </style>
 </head>
-
-<body>
-<div class="topnav">
-            <a href="{{ route('admin.index') }}" class="btn btn-primary">Back to Dashboard</a>
-            {{-- <a href="#">Link</a> --}}
-</div>
-<hr>
-<div class="row">
-  <div class="column">
-    <h2>Bar Chart - ENERGY CONSUMPTION (5G VS LoRa VS NB-IoT)</h2>
-    <div class="chartCard">
-        <div class="chartBox">
-            <canvas id="sales-chart"></canvas>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+        <a href={{ route('admin.index') }} type="button" class="btn btn-danger">Back to Dashboard</a>
+        </div>
+    </div>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h4>Bar Chart - ENERGY CONSUMPTION (5G VS LoRa VS NB-IoT)</h4>
+        </div>
+        <div class="card-body">
+            {{-- <canvas id="sales-chart"></canvas> --}}
             <button onclick="updateChart_2()">Update</button>
         </div>
     </div>
-  </div>
-</div>
-<hr>
-<div class="row">
-  <div class="column">
-    <h2>Bar Chart - FINAL COST (5G VS LoRa VS NB-IoT)</h2>
-    <br><hr><br>
-    <div class="chartCard">
-        <div class="chartBox">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h4>Bar Chart - Chipest Scenarios</h4>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary btn-lg">Open</button>
+        </div>
+    </div>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h4>Bar Chart - Total Score </h4>
+        </div>
+        <div class="card-body">
             <canvas id="myChart"></canvas>
             <button onclick="updateChart()">View</button>
         </div>
     </div>
-  </div>
-</div>
-<hr>
-<hr>
-<div class="row">
-    <div class="column">
-        <h2>Bar Chart - Total Score <h2>
-        <button type="button" class="btn btn-primary btn-lg">Open</button>
+    <div class="card">
+        <div class="card-header">
+            <h4>Bar Chart - Total Score </h4>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary btn-lg">Open</button>
+        </div>
     </div>
-</div>
-<hr>
-<hr>
-<div class="row">
-    <div class="column">
-        <h2>Bar Chart - ?????</h2>
-        <button type="button" class="btn btn-primary btn-lg">Open</button>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h4>Bar Chart - Total Score </h4>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary btn-lg">Open</button>
+        </div>
     </div>
-</div>
-<hr>
-<hr>
-<div class="row">
-    <div class="column">
-        <h2>Bar Chart - ?????</h2>
-        <button type="button" class="btn btn-primary btn-lg">Open</button>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h4>Bar Chart - Total Score </h4>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary btn-lg">Open</button>
+        </div>
     </div>
-</div>
-<hr>
-<hr>
-<div class="row">
-    <div class="column">
-        <h2>Bar Chart - ?????</h2>
-        <button type="button" class="btn btn-primary btn-lg">Open</button>
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h4>Bar Chart - Total Score </h4>
+        </div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary btn-lg">Open</button>
+        </div>
     </div>
+    <hr>
 </div>
-<hr>
+@endsection
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
@@ -187,7 +196,7 @@
         );
     </script>
 
-    <script>
+    {{-- <script>
     function updateChart_2(){
     async function fetchJSON() {
         const url = 'json/chart.json';
@@ -217,7 +226,7 @@
         Pie_Charts.update();
     });
     };
-    </script>
+    </script> --}}
 
     <!-- REQUIRED SCRIPTS -->
 
@@ -236,7 +245,4 @@
 <script src="dist/js/pages/dashboard3.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
-<a id="back-to-top" href="{{ route('chartView') }}#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
-      <i class="fas fa-chevron-up"></i>
-    </a>
-@endsection
+

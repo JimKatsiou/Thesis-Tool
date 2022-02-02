@@ -1,8 +1,6 @@
 %% GREEDY ALGORITH FIND THE BEST COST-EFFECTIVE SCENARIO
 
 %% Initialise input and call the function
-%chr = fileread( fullfile( 'c:', 'full', 'directory', 'name', 'of', 'b', [ text_file_name, '.txt' ] ) );
-%p = fullfile('E:', 'Development', 'Laravel', 'Thesis_Tool', 'public', 'MatlabCodes','json','scenarios.json');
 
 find_the_cheapest();
 
@@ -40,12 +38,19 @@ function find_the_cheapest()
     disp("Cost:");
     disp(minimum_cost);
 
-%% End of greedy - Start creating json files!
-    
+    json_file_generator(chepestTableS,chepestTableC,jsonData);
+
+end %End of greedy
+
+
+%% - Start creating json files!
+function json_file_generator(chepestTableS,chepestTableC,jsonData)
+
     chepestTableS( ~any(chepestTableS,2), : ) = [];  %rows
     chepestTableC( ~any(chepestTableC,2), : ) = [];  %rows
-    f_table = table(chepestTableS,chepestTableC);
-    %f_table( ~any(f_table,2), : ) = [];  %rows
+    scenario = chepestTableS;
+    final_Cost = chepestTableC;
+    f_table = table(scenario,final_Cost);
     %f_table( :, ~any(f_table,1) ) = [];  %columns
 
     jsonText = jsonencode(f_table); % Convert to JSON text
@@ -60,7 +65,24 @@ function find_the_cheapest()
     fclose(fid);
     
     movefile('cost-effective.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')
+    
+    Table = struct2table(jsonData);
+    final_cost = Table.FinalCost;
+    scenario = Table.scenario;
+    Final = table(scenario,final_cost);
+    sortT = sortrows(Final,2);
+    jsonText = jsonencode(sortT); % Convert to JSON text
+    jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
+    % jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
+    % jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
+    jsonText = strrep(jsonText, '}', sprintf('\r}'));
+    jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
+    %sorted_Table = table();
 
+    fid = fopen('sort_by_chipest_list.json', 'w'); % Write to a json file
+    fprintf(fid, '%s', jsonText);
+    fclose(fid);
+    movefile('sort_by_chipest_list.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')
 
 end
 

@@ -39,12 +39,13 @@ exec("matlab.exe");
                 while($row = mysqli_fetch_array($result))
                 {
                     $scenario_data[] = array(
+                        'scenario'      => $row["id"],
                         'sensors5G'     => $row["sensors5G"],
                         'sensorsNB'     => $row["sensorsNB"],
                         'sensorsLoRa'   => $row["sensorsLoRa"],
                         'Gateaways'     => $row["Gateaways"],
                         'FinalCost'     => $row["FinalCost"],
-                        'Energy'     => $row["Energy"],
+                        'Energy'        => $row["Energy"],
                         'display'       => $row["display"] // it must be deleted, is for checkin.
                     );
                 }
@@ -111,7 +112,7 @@ exec("matlab.exe");
         </div>
     </div>
 
-
+</div>
 @endsection
 <!-- Google Font: Source Sans Pro -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
