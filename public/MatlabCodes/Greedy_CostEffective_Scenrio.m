@@ -9,20 +9,26 @@ function find_the_cheapest()
         
     jsonText = fileread("json\scenarios.json");
     jsonData = jsondecode(jsonText); % Convert JSON formatted text to MATLAB data types
+    jsonDataTable = table(jsonData);
     
     j = length(jsonData);
     chepestTableS = zeros(j,1);
     chepestTableC = zeros(j,1);
-    minimum_cost = jsonData(1).FinalCost;
+    %minimum_cost = jsonData(1).FinalCost;
+    minimum_cost = jsonDataTable.jsonData(1,1).FinalCost;
+    minimum_cost = str2double(minimum_cost);
     chepest_scenario = 1;
     
     if j < 2
         disp("Error not enougth");
     else    
         for i = 1:1:j
-            if jsonData(i).FinalCost < minimum_cost
+            if str2double(jsonData(i).FinalCost) < minimum_cost
                 minimum_cost = jsonData(i).FinalCost;
+                mc = str2double(minimum_cost);
                 chepest_scenario = i;
+                chepestTableS(i) = i;
+                chepestTableC(i) = mc;
                 
             elseif jsonData(i).FinalCost == minimum_cost
                 minimum_cost = jsonData(i).FinalCost;

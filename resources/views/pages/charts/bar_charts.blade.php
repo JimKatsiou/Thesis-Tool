@@ -5,6 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"> </script>
     <title>Bar Charts</title>
     <style>
         * {
@@ -17,7 +19,7 @@
             width: 100vw;
             height: 10px;
             background: #1A1A1A;
-            color: rgba(163, 157, 159, 0.466);
+            color: rgb(94, 31, 52);
         }
 
         .chartMenu p {
@@ -26,19 +28,19 @@
         }
 
         .chartCard {
-            width: 100vw;
-            /* height: calc(100vh - 40px); */
-            background: rgba(184, 176, 178, 0.014);
+            width: 50vw;
+            height: calc(50vh - 40px); */
+            background: rgb(255, 255, 255);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .chartBox {
-            width: 700px;
-            padding: 10px;
-            border-radius: 20px;
-            border: solid 3px rgb(238, 229, 232);
+            width: 800px;
+            padding: 30px;
+            border-radius: 30px;
+            border: solid 3px rgb(0, 0, 0);
             background: rgb(255, 255, 255);
         }
     </style>
@@ -52,197 +54,242 @@
     <hr>
     <div class="card">
         <div class="card-header">
-            <h4>Bar Chart - ENERGY CONSUMPTION (5G VS LoRa VS NB-IoT)</h4>
+            <h4>1. Bar Chart - Chipest scenario by cost</h4>
         </div>
         <div class="card-body">
-            {{-- <canvas id="sales-chart"></canvas> --}}
-            <button onclick="updateChart_2()">Update</button>
+            <div class="chartCard">
+                <div class="chartBox">
+                  <canvas id="myChart"></canvas>
+                  <button onclick="updateChart()">Update</button>
+                </div>
+            </div>
         </div>
     </div>
     <hr>
     <div class="card">
         <div class="card-header">
-            <h4>Bar Chart - Chipest Scenarios</h4>
+            <h4>2. Bar Chart - Chipest Scenarios (sorted by scenario)</h4>
         </div>
         <div class="card-body">
-            <button type="button" class="btn btn-primary btn-lg">Open</button>
+            <div class="chartCard">
+                <div class="chartBox">
+                  <canvas id="bar-chart_2"></canvas>
+                  {{-- <button onclick="updateChart_2()">Update</button> --}}
+                </div>
+            </div>
         </div>
     </div>
     <hr>
     <div class="card">
         <div class="card-header">
-            <h4>Bar Chart - Total Score </h4>
+            <h4>3. Bar Chart - Sort by chipest </h4>
         </div>
         <div class="card-body">
-            <canvas id="myChart"></canvas>
-            <button onclick="updateChart()">View</button>
+            <div class="chartCard">
+                <div class="chartBox">
+                    <canvas id="bar-chart"></canvas>
+                </div>
+            </div>
         </div>
     </div>
     <div class="card">
         <div class="card-header">
-            <h4>Bar Chart - Total Score </h4>
+            <h4>4. Bar Chart - Sort by Enrergy efficient </h4>
         </div>
         <div class="card-body">
-            <button type="button" class="btn btn-primary btn-lg">Open</button>
+            <div class="chartCard">
+                <div class="chartBox">
+                    <canvas id="bar-chart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h4>5. Bar Chart - ENERGY CONSUMPTION (ΥΠΑΡΧΕΙ ΚΑΙ ΑΥΤΟ ΤΟ ΕΙΔΟΣ ΠΡΟΒΟΛΗΣ ΑΛΛΑ ΜΑΛΛΟΝ ΕΙΝΑΙ ΠΑΡΑΠΑΝΩ CLICK ΧΩΡΙΣ ΛΟΓΟ) </h4>
+        </div>
+        <div class="card-body">
+            <a href={{ route('bar-cost_effective') }} type="button" class="btn btn-primary btn-sm">Open</a>
         </div>
     </div>
     <hr>
-    <div class="card">
+    {{-- <div class="card">
         <div class="card-header">
             <h4>Bar Chart - Total Score </h4>
         </div>
         <div class="card-body">
             <button type="button" class="btn btn-primary btn-lg">Open</button>
+            <a href={{ route('bar-chart-view') }} type="button" class="btn btn-primary btn-sm">Open</a>
         </div>
-    </div>
-    <hr>
-    <div class="card">
-        <div class="card-header">
-            <h4>Bar Chart - Total Score </h4>
-        </div>
-        <div class="card-body">
-            <button type="button" class="btn btn-primary btn-lg">Open</button>
-        </div>
-    </div>
-    <hr>
-    <div class="card">
-        <div class="card-header">
-            <h4>Bar Chart - Total Score </h4>
-        </div>
-        <div class="card-body">
-            <button type="button" class="btn btn-primary btn-lg">Open</button>
-        </div>
-    </div>
+    </div> --}}
     <hr>
 </div>
-@endsection
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script> //1ο chart
+    //Fetch Block
+    function updateChart() { //THIS FUNCTION IS TO UPDATE THE CHART ONLY AFTER THE CLICKING OF BUTTON UPDATE
 
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-    // Fetch Block
-    function updateChart(){
-    async function fetchJSON() {
-        const url = 'json/chart.json';
-        //const url = 'F:/Development/Laravel/Thesis_Tool/public/json/report.json';
-        const response = await fetch(url);
-        // Loads / Waiting to complete the request.....
-        const datapoints = await response.json();
-        console.log(datapoints);
-        return datapoints;
-    };
-    fetchJSON().then(datapoints => {
-        const Technology = datapoints.results.map(function (index) {
-        return index.Technology;
-        });
-        console.log(Technology)
-        myChart.config.data.labels = Technology;
-        myChart.update();
-    });
-
-    fetchJSON().then(datapoints => {
-        const FinalCost = datapoints.results.map(function (index) {
-        return index.FinalCost;
-        });
-        console.log(FinalCost)
-        myChart.config.data.datasets[0].data = FinalCost;
-        myChart.update();
-    });
-    };
-        // setup
-        const data = {
-            labels: [],
-            datasets: [{
-                label: '',
-                data: [],
-                backgroundColor: [
-                    'rgba(255, 26, 104, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(0, 0, 0, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 26, 104, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(0, 0, 0, 1)'
-                ],
-                borderWidth: 2
-            }]
+        async function fetchJSON() {
+            const url = 'MatlabCodes/Results/sort_by_chipest_list.json';
+            //const url = 'F:/Development/Laravel/Thesis_Tool/public/json/report.json';
+            const response = await fetch(url);
+            // Loads / Waiting to complete the request.....
+            const datapoints = await response.json();
+            //console.log(datapoints);
+            return datapoints;
         };
+        fetchJSON().then(datapoints => {
+            const scenario = datapoints.map(function(index) {
+                return index.scenario;
+            })
+            //console.log(scenario)
+            myChart.config.data.labels = scenario;
+            myChart.update()
+        });
 
-        // config
-        const config = {
-            type: 'bar',
-            data,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+        fetchJSON().then(datapoints => {
+            const final_cost = datapoints.map(function(index) {
+                return index.final_cost;
+            })
+            //console.log(final_cost)
+            myChart.config.data.datasets[0].data = final_cost;
+            myChart.update()
+        });
+    }
+    const data = {
+        labels: [],
+        datasets: [{
+        label: 'Total cost for each scenario',
+        data: [],
+        backgroundColor: ['rgba(54, 162, 235, 0.2)',],
+        borderColor: ['rgba(0, 0, 0, 1)'],
+        borderWidth: 1
+        }]
+    };
+    // config
+    const config = {
+        type: 'bar',
+        data,
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
             }
-        };
+        }
+        }
+    };
 
-        // render init block
-        const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-        );
+    // render init block
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    //2ο chart
+    //Fetch Block
+    getData_2();
+
+        async function getData_2() {
+            const response = await fetch('MatlabCodes/Results/sort_by_scenario.json')
+            console.log(response);
+			const data = await response.json();
+			console.log(data);
+			length = data.length;
+			//console.log(length);
+
+            labels = [];
+			values = [];
+			for (i = 0; i < length; i++) {
+				labels.push(data[i].scenario);
+				values.push(data[i].final_cost);
+		    }
+            // console.log(labels);
+            // console.log(values);
+
+            new Chart(document.getElementById('bar-chart_2'), {
+				type: 'bar',
+				data: {
+					labels: labels,
+					datasets: [
+						{
+							label: "Population (millions)",
+							backgroundColor: ["#3e95cd",
+											"#8e5ea2"],
+							data: values
+						}
+					]
+				},
+				options: {
+					legend: { display: false },
+					title: {
+						display: true,
+						text: 'U.S population'
+					}
+				}
+			});
+        }
+
     </script>
 
-    {{-- <script>
-    function updateChart_2(){
-    async function fetchJSON() {
-        const url = 'json/chart.json';
-        //const url = 'F:/Development/Laravel/Thesis_Tool/public/json/report.json';
-        const response = await fetch(url);
-        // Loads / Waiting to complete the request.....
-        const datapoints = await response.json();
-        console.log(datapoints);
-        return datapoints;
-    };
-    fetchJSON().then(datapoints => {
-        const Technology = datapoints.results.map(function (index) {
-        return index.Technology;
-        });
-        console.log(Technology)
-        Pie_Charts.labels = Technology;
-        Pie_Charts.update();
-        // console.log(Pie_Charts.labels);
-    });
+    <script>
+        getData();
 
-    fetchJSON().then(datapoints => {
-        const FinalCost = datapoints.results.map(function (index) {
-        return index.FinalCost;
-        });
-        console.log(FinalCost)
-        Pie_Charts.data.datasets[0] = FinalCost;
-        Pie_Charts.update();
-    });
-    };
-    </script> --}}
+        async function getData() {
+            const response = await fetch('MatlabCodes/Results/sort_by_chipest_list.json')
+            console.log(response);
+			const data = await response.json();
+			console.log(data);
+			length = data.length;
+			//console.log(length);
 
-    <!-- REQUIRED SCRIPTS -->
+            labels = [];
+			values = [];
+			for (i = 0; i < length; i++) {
+				labels.push(data[i].scenario);
+				values.push(data[i].final_cost);
+		    }
+            // console.log(labels);
+            // console.log(values);
 
+            new Chart(document.getElementById('bar-chart'), {
+				type: 'bar',
+				data: {
+					labels: labels,
+					datasets: [
+						{
+							label: "Final Cost (Euro)",
+							backgroundColor: ["#3e95cd",
+											"#8e5ea2"],
+							data: values
+						}
+					]
+				},
+				options: {
+					legend: { display: false },
+					title: {
+						display: true,
+						text: 'Fanal Costs'
+					}
+				}
+			});
+        }
+    </script>
+
+@endsection
+<!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="dist/js/adminlte.min.js"></script>
-
 <!-- OPTIONAL SCRIPTS -->
 <script src="plugins/chart.js/Chart.min.js"></script>
-<!-- AdminLTE for demo purposes -->
+
+{{-- <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard3.js"></script>
+<script src="dist/js/pages/dashboard3.js"></script> --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 
 
