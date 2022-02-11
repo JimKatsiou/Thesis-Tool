@@ -53,9 +53,9 @@
                             <td align="center"><a href="{{ route('scnario.create') }} , $row->id) }}" class="btn btn-warning"> Edit </a></td>
                             <td align="center">
                                 @if($row->display == 1)
-                                <a href="{{ url('/scenarios/scenario_display/'.$row->id.'/0') }}" class="btn btn-danger" onclick="return confirm('Are you sure want to enable ?')">Enable</a>
+                                <a href="{{ url('/scenarios/scenario_display/'.$row->id.'/0') }}" class="btn btn-success" onclick="return confirm('Are you sure want to enable ?')">Enabled</a>
                                 @elseif($row->display == 0)
-                                <a href="{{ url('/scenarios/scenario_display/'.$row->id.'/1') }}" class="btn btn-success" onclick="return confirm('Are you sure want to disable ?')">Disable</a>
+                                <a href="{{ url('/scenarios/scenario_display/'.$row->id.'/1') }}" class="btn btn-danger" onclick="return confirm('Are you sure want to disable ?')">Disabled</a>
                                 @endif
                             </td>
                             <td align="center"><a href="{{ route('scnario.create') }} , $row->id) }}" class="btn btn-danger"> Delete </a></td>

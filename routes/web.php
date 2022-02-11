@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BarController;
 use App\Http\Controllers\DashboardContoller;
 use App\Http\Controllers\ScenarioController;
 use App\Http\Controllers\UserController;
@@ -42,16 +43,20 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth', 'PreventBackHi
 });
 
 // ~~~ Graps Pages ~~~
+Route::get('table-view', [DashboardController::class, 'tableView'])->name('tableView');
+//Route::get('table-view_2', [DashboardController::class, 'tableView_2'])->name('tableView_2');
 
-Route::get('table-view', [DashboardContoller::class, 'tableView'])->name('tableView');
-Route::get('table-view_2', [DashboardContoller::class, 'tableView_2'])->name('tableView_2');
-Route::get('insidetableView_1', [DashboardContoller::class, 'insidetableView_1'])->name('insidetableView_1');
+Route::get('table-view_2', [TableController::class, 'index'])->name('tableView_2');
+Route::get('insidetableView_1', [DashboardController::class, 'insidetableView_1'])->name('insidetableView_1');
 
-Route::get('chart-view', [DashboardContoller::class, 'chartView'])->name('chartView');
+// ~~~~ BAR CHARTS PAGES ~~~~
+Route::get('chart-view', [BarController::class, 'chartView'])->name('chartView');
+Route::get('bar-chart-view', [BarController::class, 'barChartView'])->name('bar-chart-view');
+Route::get('bar-cost_effective', [BarController::class, 'barChartView_1'])->name('bar-cost_effective');
 
-Route::get('chart-viewPie', [DashboardContoller::class, 'chartViewPie'])->name('chartViewPie');
 
-Route::get('chart-viewLine', [DashboardContoller::class, 'chartViewLine'])->name('chartViewLine');
+Route::get('chart-viewPie', [DashboardController::class, 'chartViewPie'])->name('chartViewPie');
+Route::get('chart-viewLine', [DashboardController::class, 'chartViewLine'])->name('chartViewLine');
 
 // ~~~ /Graps Pages ~~~
 
