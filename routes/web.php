@@ -42,6 +42,9 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth', 'PreventBackHi
     Route::post('change-password', [AdminController::class, 'changePassword'])->name('adminChangePassword');
 });
 
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SideBarController ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 // ~~~ Graps Pages ~~~
 Route::get('table-view', [DashboardController::class, 'tableView'])->name('tableView');
 //Route::get('table-view_2', [DashboardController::class, 'tableView_2'])->name('tableView_2');

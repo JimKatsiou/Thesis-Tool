@@ -12,7 +12,7 @@
             <a href="{{ route('scnario.create') }}" class="btn btn-primary pull-left" style="float: right"> + Add </a>
             <br><br>
             <div class="card">
-                <div class="card-header" align="center"><b>Scenario List</b></div>
+                <div class="card-header" align="center"><b>Scenarios Page</b></div>
                 <div class="card-body">
                 @if(session()->has('message'))
                       <div class="alert alert-success">

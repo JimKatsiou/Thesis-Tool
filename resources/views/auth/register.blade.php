@@ -40,13 +40,6 @@
                                     <span class="text-danger">@error('name'){{ $message }}@enderror</span>
 								</div>
 
-                                {{-- <div class="form-group">
-									<label for="address">Address</label>
-									<input id="address" type="address" class="form-control" name="address" required placeholder="Enter address"
-                                    value="{{ old('address') }}">
-                                    <span class="text-danger">@error('address'){{ $message }}@enderror</span>
-								</div> --}}
-
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
 									<input id="email" type="email" class="form-control" name="email" required placeholder="Enter email"

@@ -21,7 +21,6 @@ class User extends Authenticatable
         'name',
         'email',
         'role',
-        // 'address',
         'picture',
         'password',
     ];
@@ -47,7 +46,7 @@ class User extends Authenticatable
 
     public function getPictureAttribute($value){
         if($value){
-            return asset('user/image/'.$value);
+            return asset('users/images/'.$value);
         }else{
             return asset('users/images/no-image.png' . $value);
         }

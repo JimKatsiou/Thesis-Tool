@@ -97,7 +97,6 @@ class RegisterController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = 2;
-        $user->address = $request->address;
         $user->picture = $picture;
         $user->password = \Hash::make($request->password);
 
