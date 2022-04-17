@@ -35,6 +35,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth', 'PreventBackHi
     Route::get('index',[AdminController::class,'index'])->name('admin.index');
     Route::get('profile', [AdminController::class, 'profile'])->name('admin.profile');
     Route::get('matlab', [AdminController::class, 'matlab'])->name('admin.matlab');
+    Route::get('genetic', [AdminController::class, 'genetic'])->name('admin.genetic');
     Route::get('settings', [AdminController::class, 'settings'])->name('admin.settings');
 
     Route::post('update-profile-info', [AdminController::class, 'updateInfo'])->name('adminUpdateInfo');
@@ -43,7 +44,6 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth', 'PreventBackHi
 });
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SideBarController ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 // ~~~ Graps Pages ~~~
 Route::get('table-view', [DashboardController::class, 'tableView'])->name('tableView');

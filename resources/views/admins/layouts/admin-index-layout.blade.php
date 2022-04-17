@@ -89,9 +89,23 @@
             <a href={{ route('scnario.index') }} class="nav-link"><i class="nav-icon fa fa-bookmark"></i><p>Scenarios</p></a>
         </li>
         <li class="nav-item">
-            <a href={{ route('admin.matlab') }} class="nav-link"><i class="nav-icon fa fa-laptop"></i><p>??</p></a>
+            <a href="#" class="nav-link">
+                <i class="nav-icon fa fa-laptop"></i>
+                <p>
+                  Algorithms
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href={{ route('admin.matlab') }} class="nav-link"><i class="nav-icon fa fa-laptop"></i><p>Greedy</p></a>
+                </li>
+                <li class="nav-item">
+                <a href={{ route('admin.genetic') }} class="nav-link"><i class="nav-icon fa fa-laptop"></i><p>Genetic</p></a>
+                </li>
+            </ul>
         </li>
-        <li class="nav-item">
+        <li class="nav-item menu-is-opening menu-open">
             <a href={{ route("chartView") }} class="nav-link"><i class="nav-icon far fa-chart-bar"></i><p>Bar Charts</p></a>
         </li>
         <li class="nav-item">

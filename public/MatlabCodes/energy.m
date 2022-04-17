@@ -1,4 +1,4 @@
-%% GREEDY ALGORITH FIND THE BEST COST-EFFECTIVE SCENARIO
+% GREEDY ALGORITH FIND THE BEST ENERGY-EFFECTIVE SCENARIO
 
     % get data from 5g_solutions json file 
     jsonText_5g_solutions = fileread("Inputs-json\5g_scenario.json");
@@ -16,26 +16,21 @@
     Table_lora_solutions = table(jsonData_lora_solutions);
 
     % get cost data from json file 
-    jsonText_Cost = fileread("Inputs-json\cost.json");
-    jsonData_Cost = jsondecode(jsonText_Cost); % Convert JSON formatted text to MATLAB data types
-    jsonDataCostTable = table(jsonData_Cost);
+    jsonText_Battery = fileread("Inputs-json\battery.json");
+    jsonData_Battery = jsondecode(jsonText_Battery); % Convert JSON formatted text to MATLAB data types
+    jsonDataBatteryTable = table(jsonData_Battery);
     
-% ΠΡΟΣΠΕΛΑΣΗ ΠΙΝΑΚΑ SOLUTIONS 5G ΚΑΙ ΑΝΤΙΣΟΙΧΗΣΗ ΜΕ ΤΑ COST ΚΑΙ ENERGY
+% ΠΡΟΣΠΕΛΑΣΗ ΠΙΝΑΚΑ SOLUTIONS 5G ΚΑΙ ΑΝΤΙΣΟΙΧΗΣΗ ΜΕ ΤA ENERGY
     for j=1:1:20
-       
-        cost_a = str2double(Table_5g_solutions.jsonData_5g_solutions(j,1).numberOf5gSensorsTypeA) * str2double(jsonDataCostTable.jsonData_Cost.cost_5g_type_a);
-        installattion_Cost_a = str2double(Table_5g_solutions.jsonData_5g_solutions(j,1).numberOf5gSensorsTypeA) * str2double(jsonDataCostTable.jsonData_Cost.installation_cost_5g_type_a);  
-        costA = (cost_a + installattion_Cost_a);
-
-        cost_b = str2double(Table_5g_solutions.jsonData_5g_solutions(j,1).numberOf5gSensorsTypeB) * str2double(jsonDataCostTable.jsonData_Cost.cost_5g_type_b);
-        installattion_Cost_b = str2double(Table_5g_solutions.jsonData_5g_solutions(j,1).numberOf5gSensorsTypeB) * str2double(jsonDataCostTable.jsonData_Cost.installation_cost_5g_type_b);  
-        costB = (cost_b + installattion_Cost_b);
-
-        cost_c = str2double(Table_5g_solutions.jsonData_5g_solutions(j,1).numberOf5gSensorsTypeC) * str2double(jsonDataCostTable.jsonData_Cost.cost_5g_type_c);
-        installattion_Cost_c = str2double(Table_5g_solutions.jsonData_5g_solutions(j,1).numberOf5gSensorsTypeC) * str2double(jsonDataCostTable.jsonData_Cost.installation_cost_5g_type_c);  
-        costC = (cost_c + installattion_Cost_c);
-
-        solution_5g_FinalCost(j) = costA + costB + costC;
+        
+        capacity_5g_solution(j) = str2double();
+		consumption_5g_solution(j) = str2double();
+		
+		battery_life_5g_solution(j) = capacity_5g_solution(j) / consumption_5g_solution(j);
+		
+		kostos_battarias
+			
+        solution_5g_FinalBatteryLife(j) = ;
         
     end
     
@@ -84,12 +79,12 @@
     
 
 %% The function - ΕΥΡΕΣΗ ΚΑΛΥΤΕΡΩΝ ΛΎΣΕΩΝ ΑΝΑ ΣΕΝΑΡΙΟ
-%Start of Greedy Algorith
-function find_the_cheapest(solution_5g_FinalCost, solution_lora_FinalCost, solution_nb_FinalCost)
+% Start of Greedy Algorith
+function find_the_cheapest(solution_5g_Final?, solution_lora_Final?, solution_nb_Final?)
 
-    minimum_cost_5g = solution_5g_FinalCost(1);
-    minimum_cost_lora = solution_lora_FinalCost(1);
-    minimum_cost_nb = solution_nb_FinalCost(1);
+    minimum_?_5g = solution_5g_Final?(1);
+    minimum_?_lora = solution_lora_Final?(1);
+    minimum_?_nb = solution_nb_Final?(1);
     c1 = 0;
     c2 = 0;
     c3 = 0;
@@ -162,18 +157,94 @@ function json_file_generator_greedy(cheapest_5g_solutionTable,cheapest_5g_soluti
     cheapest_nb_solutionTable;
     cheapest_nb_solutionTableCost;
 
-    jsonText = jsonencode(cheapest_5g_solutionTable); % Convert to JSON text
-    jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
-    % jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
-    % jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
-    jsonText = strrep(jsonText, '}', sprintf('\r}'));
-    jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
-    
-    fid = fopen('cost-effective.json', 'w'); % Write to a json file
-    fprintf(fid, '%s', jsonText);
-    fclose(fid);
+	% cost-effective (cheapest) 5g solution (sort-by-cost)
+	jsonText = jsonencode(cheapest_5g_solutionTableCost); % Convert to JSON text
+	jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
+	% jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
+	% jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
+	jsonText = strrep(jsonText, '}', sprintf('\r}'));
+	jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
+  	
+	fid = fopen('cost-effective-5g-solutions_by_cost.json', 'w'); % Write to a json file
+	fprintf(fid, '%s', jsonText);
+	fclose(fid);
+	
+	movefile('cost-effective-5g-solutions_by_cost.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')
+	
+	% cost-effective (cheapest) 5g solution (sort-by-solution)
+	jsonText = jsonencode(cheapest_5g_solutionTable); % Convert to JSON text
+	jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
+	% jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
+	% jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
+	jsonText = strrep(jsonText, '}', sprintf('\r}'));
+	jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
+  	
+	fid = fopen('cost-effective-5g-solutions_by_solution.json', 'w'); % Write to a json file
+	fprintf(fid, '%s', jsonText);
+	fclose(fid);
+	
+	movefile('cost-effective-5g-solutions_by_solution.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')
+	
+	
+	% cost-effective (cheapest) LoRa solution (sort-by-cost)
+	jsonText = jsonencode(cheapest_lora_solutionTableCost); % Convert to JSON text
+	jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
+	% jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
+	% jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
+	jsonText = strrep(jsonText, '}', sprintf('\r}'));
+	jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
+  	
+	fid = fopen('cost-effective-lora-solutions_by_cost.json', 'w'); % Write to a json file
+	fprintf(fid, '%s', jsonText);
+	fclose(fid);
+	
+	movefile('cost-effective-lora-solutions_by_cost.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')	
+	
+	
+	% cost-effective (cheapest) LoRa solution (sort-by-solution)	
+	jsonText = jsonencode(cheapest_lora_solutionTable); % Convert to JSON text
+	jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
+	% jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
+	% jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
+	jsonText = strrep(jsonText, '}', sprintf('\r}'));
+	jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
+  	
+	fid = fopen('cost-effective-lora-solutions_by_solution.json', 'w'); % Write to a json file
+	fprintf(fid, '%s', jsonText);
+	fclose(fid);
+	
+	movefile('cost-effective-lora-solutions_by_solution.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')	
+	
+	
+	% cost-effective (cheapest) NB-IoT solution (sort-by-cost)
+	jsonText = jsonencode(cheapest_nb_solutionTableCost); % Convert to JSON text
+	jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
+	% jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
+	% jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
+	jsonText = strrep(jsonText, '}', sprintf('\r}'));
+	jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
+  	
+	fid = fopen('cost-effective-nb-solutions_by_cost.json', 'w'); % Write to a json file
+	fprintf(fid, '%s', jsonText);
+	fclose(fid);
+	
+	movefile('cost-effective-nb-solutions_by_cost.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')
+	
+	
+	% cost-effective (cheapest) NB-IoT solution (sort-by-solution)
+	jsonText = jsonencode(cheapest_nb_solutionTable); % Convert to JSON text
+	jsonText = strrep(jsonText, ',', sprintf(',\r\t'));
+	% jsonText = strrep(jsonText, '[{', sprintf('[\r\t{\r'));
+	% jsonText = strrep(jsonText, '}]', sprintf('\r}\r]'));
+	jsonText = strrep(jsonText, '}', sprintf('\r}'));
+	jsonText = strrep(jsonText, '{', sprintf('{\r\t'));
+  	
+	fid = fopen('cost-effective-nb-solutions_by_solution.json', 'w'); % Write to a json file
+	fprintf(fid, '%s', jsonText);
+	fclose(fid);
+	
+	movefile('cost-effective-nb-solutions_by_solution.json','E:\Development\Laravel\Thesis_Tool\public\MatlabCodes\Results')		
 
 end
-
 
 
